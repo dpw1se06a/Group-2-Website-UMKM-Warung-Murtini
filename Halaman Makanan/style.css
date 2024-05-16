@@ -68,7 +68,7 @@ section {
     border-inline-color: black;
 }
 
-button {
+.d-flex button {
     background-color: #ECE3CE;
     color: black;
     padding: 10px 20px;
@@ -77,6 +77,44 @@ button {
     margin-top: 10px;
     cursor: pointer;
 }
+
+/* Pesanan */
+
+
+
+.masukkan input {
+    border-radius: 20px;
+    align-items: center;
+    background: transparent;
+    border-color: #ffffff;
+    width: 500px;
+    height: 60px;
+    margin-left: 300px;
+    margin-top: 20px;
+    border-width: 5px;
+}
+
+.pesanan checkbox {
+    margin-left: 300px;
+}
+
+.masukkan .nama {
+    padding-left: 15px;
+    color: #ffffff;
+}
+
+.masukkan .whatapps {
+    padding-left: 15px;
+}
+
+.masukkan .jumlahpesanan {
+    padding-left: 15px;
+}
+
+.form_pesanmenu {
+    margin: auto;
+}
+
 
 /* footer */
 
