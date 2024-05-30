@@ -1,0 +1,236 @@
+@charset "utf-8";
+/* Navbar */
+
+/* -------------------------------------------------- */
+/* CSS Document*/
+body{
+    background-color:#dddddd;
+    margin:0px;
+    padding:0px;
+}
+ 
+.testimoni{
+    height:500px;
+    background-color:#B1D3A5;
+    padding: 2% 10% 0px 10%;
+    text-align: center;
+    margin: auto;
+}
+ 
+.testimoni-text p:nth-child(1){
+    font-family: calibri;
+    font-weight:bold;
+    color:#1d1c1c;
+    font-size:30px;
+    line-height:0px;
+}
+ 
+.testimoni-text{
+    margin:70px 0px;
+}
+ 
+.testimoni-col{
+    display:flex;
+    justify-content:space-between; /* Menambahkan ruang antara card */   
+}
+ 
+.testimoni-1,.testimoni-2{
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #f4f2f4;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+    width: 500px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);   
+}
+ 
+.testimoni-col img{
+    height: 60px;
+    margin-left: 5px;
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 50%;
+}
+ 
+.testimoni-col p{
+    padding: 0;
+}
+ 
+.testimoni-col h3{
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* rating bintang */
+.testimoni-col .fas, .testimoni-col .far{
+    color: #f44336;
+}
+/* -------------------------------------------------- */
+/* footer */
+footer {
+    bottom: 0;
+}
+
+.footer {
+    background-color: #739072;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;
+    margin-top: 80px;
+}
+
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media (max-height:800px) {
+    footer {
+        position: static;
+    }
+
+    header {
+        padding-top: 40px;
+    }
+}
+
+.footer .footer-left {
+    width: 30%;
+}
+
+.footer h3 {
+    color: #f5f5f5;
+    margin: 0;
+    padding-bottom: 20px;
+    font-family: Georgia, 'Time New Roman', Times, serif;
+}
+
+.footer .footer-left img {
+    width: 25%;
+    vertical-align: middle;
+}
+
+.footer .footer-left .credit-cards {
+    width: 100%;
+
+}
+
+.footer-left {
+    text-align: center;
+}
+
+.footer .footer-copyright {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding-top: 10%;
+}
+
+.footer .footer-center {
+    width: 35%;
+}
+
+.footer .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0px;
+}
+
+.footer .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer .footer-center p a {
+    color: rgb(22, 255, 177);
+    text-decoration: none;
+}
+
+.footer .footer-right {
+    width: 30%;
+}
+
+.footer .footer-about {
+    line-height: 20px;
+    color: #f5f5f5;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0px;
+}
+
+.footer .footer-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer .footer-media {
+    margin-top: 25px;
+}
+
+.footer .footer-media a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.footer .footer-media a:hover {
+    background-color: rgb(0, 122, 82);
+}
+
+@media (max-width: 880px) {
+
+    .footer .footer-left,
+    .footer .footer-center,
+    .footer .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+    .footer .footer-center i {
+        margin-left: 0px;
+    }
+}
+/* -------------------------------------------------- */
