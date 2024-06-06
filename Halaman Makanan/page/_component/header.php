@@ -12,6 +12,67 @@ include "../config/connect.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Halaman Makanan</title>
     <link rel="stylesheet" href="../src/css/style.css">
+    <style>
+    /* body {
+        background-color: #4b6357;
+    } */
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        text-align: center;
+        padding: 20px;
+        flex-grow: 1;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .card-price {
+        font-size: 1.1rem;
+        color: #e67e22;
+        font-weight: bold;
+    }
+
+    .isi-menu {
+        margin: 20px 0;
+    }
+
+    @media (min-width: 768px) {
+        .row-cols-md-3>.col {
+            flex: 0 0 33.333%;
+            max-width: 33.333%;
+        }
+    }
+    </style>
 </head>
 
 <body>

@@ -1,6 +1,7 @@
 <?php
 session_start();
-include '../connect.php';
+include '../../../config/connect.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Mengambil data dari inputan user
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Jika berhasil maka dialihkan ke halaman produk
     if ($conn->query($query)) {
-        header("Location: ../index.php");
+        header("Location: ../../page.php?mod=dashboard");
         exit;
     } else {
         echo "Error executing query: " . $conn->error;
