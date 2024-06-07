@@ -1,24 +1,27 @@
 <?php
 session_start();
-include '../../../config/koneksi.php';
+include "../../../../config/koneksi.php";
 
-if (isset($_POST['email'], $_POST['nama'], $_POST['no_hp'], $_POST['password'])) {
-
-    // Mengambil data dari inputan user
-    $email = $_POST['email'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST['nama'];
     $no_hp = $_POST['no_hp'];
-    $password = $_POST['password'];
+    $pesanan = $_POST['pesanan'];
+    $jumlah = $_POST['jumlah'];
 
-    // Memasukan data menggunakan query SQL
-    $query = "INSERT INTO user (email, nama, no_hp, password) VALUES ('$email', '$nama', '$no_hp', '$password')";
+    // Insert the data into the database
+    $sql = "INSERT INTO pesanan (nama, no_hp, pesanan, jumlah) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $nama, $no_hp, $pesanan, $jumlah);
 
-    // Jika berhasil maka dialihkan ke halaman produk
-    if ($conn->query($query)) {
-        header("Location: ../../page.php?mod=dashboard");
-        exit;
+    if ($stmt->execute()) {
+        // Redirect to the dashboard page
+        header("Location: ../../../page.php?mod=dashboard");
+        exit();
     } else {
-        echo "Error executing query: " . $conn->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
+    $stmt->close();
 }
+
 ?>

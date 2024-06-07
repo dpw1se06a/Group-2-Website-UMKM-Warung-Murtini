@@ -18,15 +18,23 @@
                                 ?>
                         <div class="col-md-3">
                             <div class="card h-100">
-                                <img src="../image/<?php echo $row["gambar"] ?>" class="card-img-top" style=""
+                                <?php
+                                        // Fetch image data from the database
+                                        $imageData = $row["gambar"];
+
+                                        // Convert binary image data to base64 format
+                                        $base64Image = base64_encode($imageData);
+
+                                        // Output the image in the card
+                                        ?>
+                                <img src="data:image/jpeg;base64,<?php echo $base64Image ?>" class="card-img-top"
                                     alt="...">
                                 <div class="card-body" style="">
                                     <h4 class="card-title"><?php echo $row["nama_makanan"] ?></h4>
                                     <p class="card-text" style="">
                                         <?php echo $row["deskripsi"] ?>
                                     </p>
-                                    <h6 class="card-price">Rp.
-                                        <?php echo number_format($row["harga"], 0, ',', '.') ?>
+                                    <h6 class="card-price">Rp.<?php echo number_format($row["harga"], 0, ',', '.') ?>
                                     </h6>
                                 </div>
                             </div>
@@ -40,6 +48,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -48,16 +57,16 @@
     <div id="pesan" class="padding-atas-2">
         <div class="container-pesan" style="max-width: 1500px;">
             <div class="pesan-menu padding-bawah-2">
-                <h1 style="text-align: center; margin-left: 400px; color: #fff;">Pesan Makanan</h1>
+                <h1 style="text-align: center; margin-left: 10px; color: #fff;">Pesan Makanan</h1>
             </div>
             <div class="buttonpesan padding-bawah-2"
-                style=" text-align: center; margin-left: 400px; border-radius: 60px;">
+                style=" text-align: center; margin-left: 10px; border-radius: 60px;">
                 <button type=" button" class="btn btn-warning btn-lg" data-bs-toggle="modal"
                     data-bs-target="#tambahDataModal">
                     Pesanan Disini
                 </button>
             </div>
-            <div class="table-responsive mt-3" style="display:flex; margin-left: 220px; align-items: center;">
+            <div class="table-responsive mt-3" style="display:flex; margin-left: 10px; align-items: center;">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -90,10 +99,10 @@
                                 <?= $data['jumlah'] ?>
                             </td>
                             <td>
-                                <button type=" button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#editDataModal<?= $data['id_pesanan'] ?>">Edit</button>
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#hapusDataModal<?= $data['id_pesanan'] ?>">Hapus</button>
+                                <!-- <button type=" button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#editDataModal<?= $data['id_pesanan'] ?>">Edit</button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#hapusDataModal<?= $data['id_pesanan'] ?>">Hapus</button> -->
                                 <button type="button" class="btn btn-success btn-sm"
                                     onclick="whatapps('<?= $data['nama'] ?>', '<?= $data['no_hp'] ?>', '<?= $data['pesanan'] ?>', '<?= $data['jumlah'] ?>')">Konfirmasi
                                     disini!</button>

@@ -1,17 +1,20 @@
 <?php
 session_start();
-include '../../../config/koneksi.php';
+include '../../../../config/koneksi.php';
 
-if (isset($_GET['id'])) {
-    // Mengambil data dari parameter URL
-    $id = $_GET['id'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // Menghapus data menggunakan query SQL
-    $query = "DELETE FROM user WHERE user_id = $id";
+    $id = $_POST['id_pesanan'];
 
-    // Jika berhasil maka dialihkan ke halaman produk
+    echo $id . "<br>";
+    $query = "DELETE FROM pesanan WHERE id_pesanan = $id";
+
     if ($conn->query($query)) {
-        header("Location: ../../page.php?mod=dashboard");
+        ?>
+<script>
+window.location = "../../../page.php?mod=dashboard";
+</script>
+<?php
         exit;
     } else {
         echo "Error executing query: " . $conn->error;
