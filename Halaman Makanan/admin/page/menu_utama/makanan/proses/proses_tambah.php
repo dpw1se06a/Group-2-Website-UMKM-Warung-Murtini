@@ -24,7 +24,7 @@ if (isset($_POST['nama_makanan'], $_POST['deskripsi'], $_POST['harga']) && isset
 
         // Execute the statement
         if ($stmt->execute()) {
-            header("Location: ../../../page.php?mod=dashboard");
+            header("Location: ../../../page.php?mod=makanan");
             exit;
         } else {
             echo "Error executing query: " . $stmt->error;
