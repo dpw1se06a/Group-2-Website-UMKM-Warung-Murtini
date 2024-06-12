@@ -4,38 +4,41 @@ include 'edit/tambah.php';
 include 'edit/edit.php';
 include 'edit/hapus.php';
 
-function bubbleSort_ASC($data)
-{
+// Function to perform selection sort
+function selectionSort($data, $order = 'ASC') {
     $n = count($data);
-    for ($i = 0; $i < $n; $i++) {
-        for ($j = $n - 1; $j > $i; $j--) {
-            if ($data[$j]['url'] < $data[$j - 1]['url']) {
-                $temp = $data[$j];
-                $data[$j] = $data[$j - 1];
-                $data[$j - 1] = $temp;
+    for ($i = 0; $i < $n - 1; $i++) {
+        $index = $i;
+        for ($j = $i + 1; $j < $n; $j++) {
+            if ($order == 'ASC') {
+                if (strcasecmp($data[$j]['judul'], $data[$index]['judul']) < 0) {
+                    $index = $j;
+                }
+            } else {
+                if (strcasecmp($data[$j]['judul'], $data[$index]['judul']) > 0) {
+                    $index = $j;
+                }
             }
         }
+        $temp = $data[$index];
+        $data[$index] = $data[$i];
+        $data[$i] = $temp;
     }
     return $data;
 }
 
-function bubbleSortDesc($data)
-{
-    $n = count($data);
-    for ($i = 0; $i < $n; $i++) {
-        for ($j = $n - 1; $j > $i; $j--) {
-            if ($data[$j]['url'] > $data[$j - 1]['url']) {
-                $temp = $data[$j];
-                $data[$j] = $data[$j - 1];
-                $data[$j - 1] = $temp;
-            }
-        }
-    }
-    return $data;
-}
+$order = isset($_GET['order']) ? $_GET['order'] : 'ASC';
 
+// Fetch data from the database
 $query = "SELECT * FROM marimakan";
 $result = mysqli_query($conn, $query);
+$data = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $data[] = $row;
+}
+
+// Sort the data based on the selected order
+$sortedData = selectionSort($data, $order);
 ?>
 
 <div class="content-wrapper">
@@ -56,13 +59,28 @@ $result = mysqli_query($conn, $query);
     </section>
 
     <div class="card">
+    <div class="row justify-content-between">
         <div class="col m-1">
             <div class="input-group">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahDataJasa">
-                Tambah Data
-            </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahDataJasa">Tambah Data</button>
             </div>
         </div>
+
+        <div class="col m-1">
+        <form method="GET" action="page.php" class="ml-3">
+            <div class="input-group">
+                <label for="order" class="input-group-text">Sort By:</label>
+                    <input type="hidden" name="mod" value="marimakan">
+                    <select name="order" id="order" onchange="this.form.submit()" class="form-select">
+                        <option value="0" <?php if($order == '0') echo 'selected'; ?>>Default</option>
+                        <option value="ASC" <?php if ($order == 'ASC') echo 'selected'; ?>>Sort A-Z</option>
+                        <option value="DESC" <?php if ($order == 'DESC') echo 'selected'; ?>>Sort Z-A</option>
+                    </select>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -74,7 +92,7 @@ $result = mysqli_query($conn, $query);
                 </tr>
             </thead>
             <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                <?php foreach ($sortedData as $row) : ?>
                     <tr>
                         <td><img src="../../page/mari_makan/image/<?php echo $row["gambar"] ?>" width="400px" height="150px"></td>
                         <td><?= $row['judul'] ?></td>
@@ -146,44 +164,43 @@ $result = mysqli_query($conn, $query);
                             </div>
                         </div>
                     </div>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-<!-- MODAL TAMBAH -->
-<div class="modal fade" id="tambahDataJasa" tabindex="-1" aria-labelledby="tambahDataJasaLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="tambahDataJasaLabel">
-                    Tambah Data
-                </h1>
+    <!-- MODAL TAMBAH -->
+    <div class="modal fade" id="tambahDataJasa" tabindex="-1" aria-labelledby="tambahDataJasaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="tambahDataJasaLabel">Tambah Data</h1>
+                </div>
+                <form method="POST" action="page.php?mod=addMariMakan">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="judul" class="form-label">Judul</label>
+                            <input type="text" class="form-control" id="judul" name="judul">
+                        </div>
+                        <div class="mb-3">
+                            <label for="isi" class="form-label">Isi</label>
+                            <textarea class="form-control" id="isi" name="isi"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="url" class="form-label">URL</label>
+                            <input type="text" class="form-control" id="url" name="url">
+                        </div>
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label">Gambar</label>
+                            <input type="text" class="form-control" id="gambar" name="gambar">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
-            <form method="POST" action="page.php?mod=addMariMakan">
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label form="judul" class="form-label">Judul</label>
-                        <input type="text" class="form-control" id="judul" name="judul">
-                    </div>
-                    <div class="form-group">
-                        <label for="isi">Isi</label>
-                        <textarea class="form-control" id="isi" name="isi" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label form="url" class="form-label">url</label>
-                        <input type="text" class="form-control" id="url" name="url">
-                    </div>
-                    <div class="mb-3">
-                        <label form="gambar" class="form-label">Gambar</label>
-                        <input type="text" class="form-control" id="gambar" name="gambar">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>
