@@ -1,0 +1,460 @@
+body {
+    background-color: #FFC75F;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  a:hover {
+    color: #999;
+  }
+
+
+  .hiuser:hover {
+    background-color: #222;
+  }
+
+  .btn {
+    background-color: #FFC75F;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #222;
+  }
+  
+  .row-menu {
+    margin-top: 30px;
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .card{
+    background-color: #FCDDA0;
+    border: none;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    border-radius: 2%;
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    -ms-border-radius: 2%;
+    -o-border-radius: 2%;
+    box-shadow: 10px 16px 30px 0px rgba(198,198,198,0.25);
+    -webkit-box-shadow: 10px 16px 30px 0px rgba(198,198,198,0.25);
+    -moz-box-shadow: 10px 16px 30px 0px rgba(198,198,198,0.25);
+  }
+  
+  .card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Number of lines to display before truncating */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adjust the height based on the number of lines and line height */
+  }
+  
+  
+  .card-title{
+    color: #222;
+    font-weight: 800;
+  }
+  
+  .card-text{
+    color: #4B3030;
+  }
+  
+  .card-body{
+    text-align: center;
+  }
+
+
+  nav {
+    background-color: #FCDDA0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 1000;
+    transition: height 0.3s ease;
+  }
+
+  .testimoni{
+    height:500px;
+    padding: 2% 10% 0px 10%;
+    text-align: center;
+    margin: auto;
+}
+ 
+.testimoni-text p:nth-child(1){
+    font-family: calibri;
+    font-weight:bold;
+    color:#1d1c1c;
+    font-size:30px;
+    line-height:0px;
+}
+ 
+.testimoni-text{
+    margin:70px 0px;
+}
+ 
+.testimoni-col{
+    display:flex;
+    justify-content:space-between; /* Menambahkan ruang antara card */   
+}
+ 
+.testimoni-1,.testimoni-2{
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #f4f2f4;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+    width: 500px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);   
+}
+ 
+.testimoni-col img{
+    height: 60px;
+    margin-left: 5px;
+    margin-right: 30px;
+    margin-top: 20px;
+    border-radius: 50%;
+}
+ 
+.testimoni-col p{
+    padding: 0;
+}
+ 
+.testimoni-col h3{
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* rating bintang */
+.testimoni-col .fas, .testimoni-col .far{
+    color: #f44336;
+}
+
+  .navbar-collapse {
+    background-color: #FCDDA0;
+    height: 100%;
+    border-radius: 15px;
+    border-color: #fff;
+  }
+
+  .navbar-collapse ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+
+  .nav-item:hover {
+      border-radius: 50px;
+      background-color: #fff;
+  }
+
+  .hero {
+    background-image: url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-content {
+    padding: 50px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .about p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: justify;
+  }
+  
+  .container{
+    margin-top: 120px;
+  }
+
+  .container_lihat {
+      margin-top: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .container_menu {
+      height: 450px;
+      width: 90%;
+      background-color: #FCDDA0;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+  
+  }
+
+  .container_menu h2 {
+      margin-top: 10px;
+      font-weight: bold;
+  }
+
+  .container_menu_gambar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 30px;
+  }
+  
+  .gambar_container .gambar1 {
+      width: 250px;
+      height: 250px;
+      background-image: url("../../page/mari_makan/image/mari1.jpg");
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      transition: height 0.3s ease;
+  }
+
+  .gambar_container .gambar2 {
+      width: 250px;
+      height: 250px;
+      background-image: url("../../page/mari_makan/image/mari2.jpg");
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      transition: height 0.3s ease;
+  }
+
+  .gambar_container .gambar3 {
+      width: 250px;
+      height: 250px;
+      background-image: url("../../page/mari_makan/image/mari3.jpg");
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      transition: height 0.3s ease;
+  }
+  
+  .gambar_container p {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 24px;
+  }
+
+  
+
+.footer {
+    background-color: #FCDDA0;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 50px 50px 60px 50px;
+    margin-top: 80px;
+}
+
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media (max-height:800px) {
+    footer {
+        position: static;
+    }
+}
+
+.footer .footer-left {
+    width: 30%;
+}
+
+.footer h3 {
+    color: #333;
+    margin: 0;
+    padding-bottom: 20px;
+    font-family: Georgia, 'Time New Roman', Times, serif;
+}
+
+.footer .footer-left img {
+    width: 25%;
+    vertical-align: middle;
+}
+
+.footer .footer-left .credit-cards {
+    width: 100%;
+
+}
+
+.footer-left {
+    text-align: center;
+}
+
+.footer .footer-copyright {
+    color: #333;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding-top: 10%;
+}
+
+.footer .footer-center {
+    width: 35%;
+}
+
+.footer .footer-center i {
+    background-color: #fff;
+    color: black;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer .footer-center p {
+    display: inline-block;
+    color: #333;
+    vertical-align: middle;
+    margin: 0px;
+}
+
+.footer .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer .footer-center p a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer .footer-right {
+    width: 30%;
+}
+
+.footer .footer-about {
+    line-height: 20px;
+    color: #333;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0px;
+}
+
+.footer .footer-about span {
+    display: block;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer .footer-media {
+    margin-top: 25px;
+}
+
+
+.footer .footer-media a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.footer .footer-media a:hover {
+    background-color: #FFC75F;
+}
+
+@media (max-width: 880px) {
+
+  .gambar_container .gambar1, .gambar_container .gambar2, .gambar_container .gambar3{
+      width: 80px;
+      height: 80px;
+  }
+
+  .container_menu {
+      height: 270px;
+  }
+
+  .gambar_container p {
+    font-size: 14px; /* Ganti ukuran ini sesuai kebutuhan Anda */
+    color: #333; /* Tambahkan ini jika Anda ingin mengubah warna teks */
+    text-align: center; /* Pastikan teks berada di tengah */
+    margin-top: 10px; /* Atur margin atas sesuai kebutuhan */
+  }
+
+  nav {
+    height: 135px;
+  }
+
+    .footer .footer-left,
+    .footer .footer-center,
+    .footer .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+    .footer .footer-center i {
+        margin-left: 0px;
+    }
+  }
