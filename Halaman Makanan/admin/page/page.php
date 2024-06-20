@@ -21,8 +21,8 @@ if ($_GET['mod'] == 'pengguna') {
 } else if ($_GET['mod'] == 'makanan') {
     include "menu_utama/makanan/makanan.php";
 
-} else if ($_GET['mod'] == 'paketan') {
-    include "user/data_user.php";
+} else if ($_GET['mod'] == 'editform') {
+    include "menu_utama/makanan/editform.php";
 
 } else if ($_GET['mod'] == 'makanan1') {
     include "../../makanan.php";

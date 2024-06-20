@@ -33,7 +33,19 @@ function bubbleSortDesc($data)
     }
     return $data;
 }
-
+$nama_makanan = $deskripsi = $harga = $gambar = '';
+if (isset($_GET["edit"])) {
+    $id = $_GET["edit"];
+    $result = $conn->query("SELECT * FROM makanan WHERE id_makanan=$id");
+    if ($result->num_rows > 0) {
+        
+        $row = $result->fetch_assoc();
+        $id_makanan = $row['id_makanan'];
+        $nama_makanan = $row["nama_makanan"];
+        $deskripsi = $row["deskripsi"];
+        $harga = $row["harga"];
+    }
+}
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -55,6 +67,35 @@ function bubbleSortDesc($data)
     </section>
 
     <!-- Main content -->
+    <div id="editForm" class="edit">
+        <div class="container mt-5">
+            <h2>Form Edit</h2>
+            <form id="editFormMakanan" method="post" action="menu_utama/makanan/proses/proses_ubah.php"
+                enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="nama_makanan">Nama Makanan</label>
+                    <input type="text" class="form-control" id="nama_makanan" name="nama_makanan"
+                        value="<?php echo $nama_makanan; ?>" required>
+                    <input type="hidden" class="form-control" id="nama_makanan" name="id_makanan"
+                        value="<?php echo $id_makanan; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi</label>
+                    <textarea class="form-control" id="summernote" name="deskripsi" value=""
+                        required><?php echo $deskripsi; ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="harga" class="form-label">Harga</label>
+                    <input type="number" class="form-control" id="harga" name="harga" value="<?php echo $harga; ?>">
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" id="gambar" name="gambar">
+                    <label class="input-group-text" for="gambar">Upload</label>
+                </div>
+                <button type="submit" class="btn btn-warning">Edit</button>
+            </form>
+        </div>
+    </div>
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -105,13 +146,16 @@ function bubbleSortDesc($data)
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="tambahDataMakananLabel">Tambah Makanan</h1>
+                                            <h1 class="modal-title fs-5" id="tambahDataMakananLabel">Tambah
+                                                Makanan
+                                            </h1>
                                         </div>
                                         <form method="POST" action="menu_utama/makanan/proses/proses_tambah.php"
                                             enctype="multipart/form-data">
                                             <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label for="nama_makanan" class="form-label">Nama Makanan</label>
+                                                    <label for="nama_makanan" class="form-label">Nama
+                                                        Makanan</label>
                                                     <input type="text" class="form-control" id="nama_makanan"
                                                         name="nama_makanan">
                                                 </div>
@@ -132,7 +176,8 @@ function bubbleSortDesc($data)
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" class="btn btn-primary">Save
+                                                    changes</button>
                                             </div>
                                         </form>
                                     </div>
@@ -184,9 +229,8 @@ function bubbleSortDesc($data)
                                             <td><?= htmlspecialchars($row['deskripsi']) ?></td>
                                             <td>Rp. <?= number_format($row['harga'], 0, ',', '.') ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-sm"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#editDataMakanan<?= $row['id_makanan'] ?>">Edit</button>
+                                                <a href="page.php?mod=makanan&edit=<?php echo $row['id_makanan']; ?>"
+                                                    class="btn btn-primary btn-sm">Edit</a>
                                                 <button type="button" class="btn btn-danger btn-sm"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#hapusDataMakanan<?= $row['id_makanan'] ?>">Hapus</button>
@@ -242,7 +286,8 @@ function bubbleSortDesc($data)
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Close</button>
                                                             <button type="submit" class="btn btn-primary"
-                                                                name="update">Save changes</button>
+                                                                name="update">Save
+                                                                changes</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -341,7 +386,8 @@ function bubbleSortDesc($data)
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="tambahDataPesanMakananLabel">Tambah Pesanan
+                                            <h1 class="modal-title fs-5" id="tambahDataPesanMakananLabel">Tambah
+                                                Pesanan
                                             </h1>
                                         </div>
                                         <form method="POST" action="menu_utama/makanan/proses_pesan/proses_tambah.php">
@@ -370,7 +416,8 @@ function bubbleSortDesc($data)
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" class="btn btn-primary">Save
+                                                    changes</button>
                                             </div>
                                         </form>
                                     </div>
@@ -417,7 +464,9 @@ function bubbleSortDesc($data)
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="editDataPesanModalLabel">Update Data
+                                                        <h5 class="modal-title" id="editDataPesanModalLabel">
+                                                            Update
+                                                            Data
                                                             Pesanan</h5>
                                                         <button type="button" class="close" data-bs-dismiss="modal"
                                                             aria-label="Close">
@@ -483,7 +532,8 @@ function bubbleSortDesc($data)
                                                     <form method="POST"
                                                         action="menu_utama/makanan/proses_pesan/proses_hapus.php">
                                                         <div class="modal-body">
-                                                            <p>Apakah Anda yakin ingin menghapus pesanan ini?</p>
+                                                            <p>Apakah Anda yakin ingin menghapus pesanan ini?
+                                                            </p>
                                                             <input type="hidden" name="id_pesanan"
                                                                 value="<?= $data['id_pesanan'] ?>">
                                                         </div>
@@ -515,5 +565,22 @@ function bubbleSortDesc($data)
     </section>
     <!-- /.content -->
 </div>
+
+<script>
+$('#summernote').summernote({
+    placeholder: 'Edit disini',
+    tabsize: 2,
+    height: 120,
+    toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview', 'help']]
+    ]
+});
+</script>
 
 <?php include "_component/footer.php"; ?>

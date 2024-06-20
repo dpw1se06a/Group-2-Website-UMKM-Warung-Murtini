@@ -9,7 +9,8 @@ if ($_GET['mod'] == 'dashboard') {
 } else if ($_GET['mod'] == 'hal_berita') {
     include "berita/hal_berita.php";
 
-} else if ($_GET['mod'] == 'education') {
+} else if ($_GET['mod'] == 'login') {
+    include "proses-login/login.php";
 
 } else if ($_GET['mod'] == 'technology') {
 

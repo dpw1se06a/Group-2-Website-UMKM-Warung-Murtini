@@ -116,7 +116,7 @@ include "../config/connect.php";
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <button class="btnuser">Hi User!</button>
+                    <a href="page.php?mod=login" type="button" class="btnuser">Hi User!</a>
                 </form>
             </div>
         </div>

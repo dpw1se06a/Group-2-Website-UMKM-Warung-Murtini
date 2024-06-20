@@ -14,6 +14,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="page.php?mod=editform" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Edit Deskripsi Halaman Makanan</p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="../../index2.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Halaman Paketan</p>

@@ -1,7 +1,10 @@
 <?php
 session_start();
 include '../../../../../config/connect.php';
-
+echo $_POST['id_makanan'];
+echo $_POST['nama_makanan'];
+echo $_POST['deskripsi'];
+echo $_POST['harga'];
 if (isset($_POST['id_makanan'], $_POST['nama_makanan'], $_POST['deskripsi'], $_POST['harga'])) {
     $id_makanan = $_POST['id_makanan'];
     $nama_makanan = $_POST['nama_makanan'];

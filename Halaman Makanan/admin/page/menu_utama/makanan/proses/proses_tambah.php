@@ -9,7 +9,6 @@ if (isset($_POST['nama_makanan'], $_POST['deskripsi'], $_POST['harga']) && isset
     $gambar = $_FILES['gambar'];
 
     // Debugging
-    echo "tes1";
     var_dump($_FILES['gambar']); // Debugging line
 
     // Read the binary data from the uploaded file
